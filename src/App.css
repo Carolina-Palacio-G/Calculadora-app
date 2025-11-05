@@ -1,0 +1,21 @@
+:root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji"; line-height:1.4 }
+body { margin: 0; background: #0f172a; color: #e5e7eb }
+.app { max-width: 720px; margin: 48px auto; padding: 24px; background: #111827; border-radius: 16px; box-shadow: 0 8px 24px rgba(0,0,0,.2) }
+h1 { margin-top: 0; font-size: 28px }
+.calc .row { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 12px }
+label { display:flex; flex-direction: column; gap:6px; font-size: 14px }
+input, select, button {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #374151;
+  background: #0b1220;
+  color: #e5e7eb;
+}
+input:focus, select:focus { outline: 2px solid #3b82f6; border-color: transparent }
+.buttons { display:flex; gap:10px; margin: 8px 0 0 }
+button { cursor: pointer }
+button.secondary { background: #1f2937 }
+.error { color: #f97316; margin-top: 8px }
+.result { color:#86efac; margin-top: 8px }
+.footer { margin-top: 12px; font-size: 12px; color: #9ca3af }
+@media (max-width: 640px) { .calc .row { grid-template-columns: 1fr } }
