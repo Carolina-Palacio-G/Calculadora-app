@@ -1,12 +1,11 @@
-import Calculadora from "./Calculadora";
+import Calculadora from './Calculadora.jsx'
 
-function App() {
+export default function App() {
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
+    <main className="app">
       <h1>Calculadora Web</h1>
       <Calculadora />
-    </div>
-  );
+      <footer className="footer">Hecho con React + Vite</footer>
+    </main>
+  )
 }
-
-export default App;

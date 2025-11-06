@@ -1,26 +1,13 @@
-# Base
-FROM node:18
-
-# Crear directorio de trabajo
+FROM node:18-alpine AS build
 WORKDIR /app
-
-# Copiar package.json y package-lock.json
 COPY package*.json ./
-
-# Instalar dependencias
-RUN npm install --legacy-peer-deps
-
-# Copiar el resto del proyecto
+RUN npm ci
 COPY . .
-
-# Construir la app
 RUN npm run build
 
-# Instalar servidor estático
+FROM node:18-alpine AS runtime
+WORKDIR /app
 RUN npm install -g serve
-
-# Puerto
+COPY --from=build /app/dist ./dist
 EXPOSE 3000
-
-# Comando para servir la app
-CMD ["serve", "-s", "build", "-l", "3000"]
+CMD ["serve", "-s", "dist", "-l", "3000"]
